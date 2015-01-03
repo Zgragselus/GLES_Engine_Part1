@@ -1,0 +1,104 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>OpenGL ES by Zgragselus</title>
+
+    <link rel="stylesheet" href="stylesheets/styles.css">
+    <link rel="stylesheet" href="stylesheets/pygment_trac.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <div class="wrapper">
+      <header>
+        <h1>OpenGL ES</h1>
+        <p>Part 1 - Introduction</p>
+
+        <p class="view"><a href="https://github.com/Zgragselus/GLES_Engine_Part1">View the Project on GitHub <small>Zgragselus/GLES_Engine_Part1</small></a></p>
+
+
+        <ul>
+          <li><a href="https://github.com/Zgragselus/GLES_Engine_Part1/zipball/master">Download <strong>ZIP File</strong></a></li>
+          <li><a href="https://github.com/Zgragselus/GLES_Engine_Part1/tarball/master">Download <strong>TAR Ball</strong></a></li>
+          <li><a href="https://github.com/Zgragselus/GLES_Engine_Part1">View On <strong>GitHub</strong></a></li>
+        </ul>
+      </header>
+      <section>
+        <h1>
+<a id="opengl-es-engine" class="anchor" href="#opengl-es-engine" aria-hidden="true"><span class="octicon octicon-link"></span></a>OpenGL ES Engine</h1>
+
+<h4>
+<a id="introduction" class="anchor" href="#introduction" aria-hidden="true"><span class="octicon octicon-link"></span></a>Introduction</h4>
+
+<p>In the introductory project it is shown how to set-up and write a very basic OpenGL ES 2.0 context within Android application. The used language is Java throughout whole lesson.</p>
+
+<p>The actual code is straight forward, so let me explain it here a little bit.</p>
+
+<h4>
+<a id="mainactivityjava" class="anchor" href="#mainactivityjava" aria-hidden="true"><span class="octicon octicon-link"></span></a>MainActivity.java</h4>
+
+<p>This class is the main activity which is showed to the user. There is one private member:
+<code>GLSurfaceView mGLView</code></p>
+
+<p>The GLSurfaceView is a (view) class that allows us to draw into the surface using OpenGL ES. For this class we create a sub-class (see below) that does the rendering we actually want.</p>
+
+<p>Inside create method for activity we instatiate new sub-class of GLSurfaceView and set it as content view (so that all we are going to see is just the surface with OpenGL ES context.</p>
+
+<h4>
+<a id="myglrenderviewjava" class="anchor" href="#myglrenderviewjava" aria-hidden="true"><span class="octicon octicon-link"></span></a>MyGLRenderView.java</h4>
+
+<p>The class derives from GLRenderView class and all that is needed to do here is: setup some parameters. First the OpenGL ES version is selected, followed by setting the renderer (which is an instance of our own Renderer class- see below), and we set Render mode.</p>
+
+<p>The render mode is important here, there are 2 common values that you are going to see in most of the OpenGL ES applications:</p>
+
+<ol>
+<li>
+<code>RENDERMODE_WHEN_DIRTY</code> saves battery and re-draws the screen only when necessary (when render context is created or when requestRender() is called)</li>
+<li>
+<code>RENDERMODE_CONTINUOSLY</code> re-draws the frame whenever we can, which is useful for games and animations</li>
+</ol>
+
+<h4>
+<a id="myrendererjava" class="anchor" href="#myrendererjava" aria-hidden="true"><span class="octicon octicon-link"></span></a>MyRenderer.java</h4>
+
+<p>Is the class where we do the actual OpenGL ES rendering. There are three overriden methods.</p>
+
+<ol>
+<li>
+<code>onDrawFrame</code> is called each time we request frame rendering</li>
+<li>
+<code>onSurfaceChanged</code> is called each time surface resolution has changed (rotating screen or start for example)</li>
+<li>
+<code>onSurfaceCreated</code> is called just only time, when the surface for rendering is created (e.g. start only)</li>
+</ol>
+
+<h4>
+<a id="summary" class="anchor" href="#summary" aria-hidden="true"><span class="octicon octicon-link"></span></a>Summary</h4>
+
+<p>While there is nothing really drawn into the viewport after the introductory part, it shows some important concepts behind Android &amp; OpenGL ES rendering.</p>
+
+<p>Be sure to check the next part of adventures in Android and OpenGL ES, where there is going to be something put on the screen.</p>
+      </section>
+      <footer>
+        <p>This project is maintained by <a href="https://github.com/Zgragselus">Zgragselus</a></p>
+        <p><small>Hosted on GitHub Pages &mdash; Theme by <a href="https://github.com/orderedlist">orderedlist</a></small></p>
+      </footer>
+    </div>
+    <script src="javascripts/scale.fix.js"></script>
+              <script type="text/javascript">
+            var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+            document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+          </script>
+          <script type="text/javascript">
+            try {
+              var pageTracker = _gat._getTracker("UA-18117876-1");
+            pageTracker._trackPageview();
+            } catch(err) {}
+          </script>
+
+  </body>
+</html>
